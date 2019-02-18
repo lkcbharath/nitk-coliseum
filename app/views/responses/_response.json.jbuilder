@@ -1,0 +1,2 @@
+json.extract! response, :id, :correct_response, :given_response, :created_at, :updated_at
+json.url response_url(response, format: :json)
