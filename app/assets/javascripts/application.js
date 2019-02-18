@@ -14,15 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-readyselector
+//= require response
 //= require_tree .
-
-// window.onload=function(){ 
-//     (function() {
-//             $(".responses.new").ready(function() {
-//               return setTimeout(function() {
-//                 return response_submit.click();
-//               }, 3000);
-//             });
-          
-//           }).call(this);
-// };

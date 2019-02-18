@@ -11,8 +11,6 @@
     </div>
   <% end %>
 
-  
-
   <% if question = current_user.questions.first %>
 
     <div class="field">
@@ -43,12 +41,12 @@
       <%= f.radio_button :given_response, 4 %>
     </div>
 
-    <% end %>
-    
-  <div class = "<%= controller_name %> <%= action_name %>">
-    <div class="actions">
-      <%= f.submit :id => "response_submit" %>
+    <div class = "<%= controller_name %> <%= action_name %>">
+      <div class="actions">
+        <%= f.submit :id => "response_submit" %>
+      </div>
     </div>
-  </div>
-  
+
+  <% end %>
+
 <% end %>

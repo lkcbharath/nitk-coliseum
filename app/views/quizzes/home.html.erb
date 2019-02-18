@@ -2,6 +2,6 @@
 
 Home Page!
 
-<%= link_to 'Questions', questions_path, data: { confirm: 'Question list' } %>
-
-<%= link_to 'Begin the quiz', quizzes_path %>
+<% if current_user.answered_responses == 0 %>
+    <%= link_to 'Begin the quiz', quizzes_path %>
+<% end %>
