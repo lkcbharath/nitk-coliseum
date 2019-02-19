@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Devise for authentication, Bootstrap-Sass for UI/UX, exception_handler for 404
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

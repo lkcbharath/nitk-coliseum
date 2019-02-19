@@ -36,13 +36,15 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
 
-      if current_user.answered_responses >= 10
-
+      if current_user.answered_responses == 10
+        
         current_user.questions.delete(@question) if @question
 
         current_user.end_time = Time.now.utc
         current_user.total_time_taken_s = (current_user.end_time.to_i) - (current_user.start_time.to_i)
         current_user.save
+
+        @response.save
 
         format.html { redirect_to quizzes_url }
 
