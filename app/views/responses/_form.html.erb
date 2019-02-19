@@ -13,46 +13,63 @@
 
   <% if question = current_user.questions.first %>
 
-    <div class="field">
-      <%= f.label question.description %>
-    </div>
+    <h3 >
+      <%= f.label question.description, :style => "display: inline-block;" %><p style="display: inline-block;float: right;" id="timer">10</p>  
+    </h3>
+
+
+    <br>
 
     <div class="field" style="display: none;">
       <%= f.radio_button :given_response, 0, :checked => "checked" %>
     </div>
 
-    <div class="field">
-      <%= f.label question.option_1 %>
-      <%= f.radio_button :given_response, 1 %>
+    <div class="radio">
+      <label>
+          <%= f.radio_button :given_response, 1 %>
+          <%= f.label question.option_1 %><br>
+      </label>
     </div>
 
-    <div class="field">
-      <%= f.label question.option_2 %>
-      <%= f.radio_button :given_response, 2 %>
+    
+
+    <div class="radio">
+    <label>
+        <%= f.radio_button :given_response, 2 %>
+        <%= f.label question.option_2 %><br>
+    </label>
     </div>
 
-    <div class="field">
-      <%= f.label question.option_3 %>
-      <%= f.radio_button :given_response, 3 %>
+    
+
+    <div class="radio">
+      <label>
+        <%= f.radio_button :given_response, 3 %>
+        <%= f.label question.option_3 %><br>
+    </label>
     </div>
 
-    <div class="field">
-      <%= f.label question.option_4 %>
-      <%= f.radio_button :given_response, 4 %>
+    
+
+    <div class="radio">
+      <label>
+        <%= f.radio_button :given_response, 4 %>
+        <%= f.label question.option_4 %><br>
+      </label>    
     </div>
+
+    
 
     <div class = "<%= controller_name %> <%= action_name %>">
-      <div class="actions">
-        <%= f.submit :id => "response_submit" %>
-      </div>
+        <%= f.submit :id => "response_submit", :class => "btn btn-default" %>
     </div>
 
-    <p id="timer">10</p>
+    
 
   <% end %>
 
   <script>
-    document.onload = setTimeout(function () { response_submit.click(); }, 10000);
+    //document.onload = setTimeout(function () { response_submit.click(); }, 10000);
     //document.onload = setTimeout(function () { alert(timer.html); }, 10000);
   </script>
 

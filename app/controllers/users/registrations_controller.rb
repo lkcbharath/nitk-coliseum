@@ -6,7 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    
     super
   end
 
@@ -42,9 +41,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def sign_up_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :team_name, :name_1, :roll_1, :contact_1, :name_2, :roll_2, :contact_2, :name_3, :roll_3, :contact_3, :name_4, :roll_4, :contact_4)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -60,23 +59,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-
-
-
-
-
-
-
-  
-
-  # private
-  # def team_detail_params
-  #   params.require(:team_detail).permit(:team_name, :name_1, :roll_1, :contact_1, 
-  #                                                   :name_2, :roll_2, :contact_2, 
-  #                                                   :name_3, :roll_3, :contact_3, 
-  #                                                   :name_4, :roll_4, :contact_4,) 
-  # end
-
 
 end

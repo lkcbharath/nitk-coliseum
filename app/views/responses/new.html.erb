@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>New Response</h1>
+<% if notice %>
+    <div class="alert alert-success" role="alert">
+        <%= notice %>
+    </div>
+<% end %>
 
 <%= render 'form', response: @response %>
 

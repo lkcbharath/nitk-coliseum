@@ -17,7 +17,7 @@ class QuizzesController < ApplicationController
                 current_user.save
 
                 # redirect_to new_response_url
-                format.html { redirect_to new_response_path, notice: 'Answer recorded! '}
+                format.html { redirect_to new_response_path, notice: 'Your time starts now!'}
             end
         end
     end

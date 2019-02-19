@@ -4,9 +4,9 @@ class ResponsesController < ApplicationController
 
   # GET /responses
   # GET /responses.json
-  def index
-    @responses = Response.all
-  end
+  # def index
+  #   @responses = Response.all
+  # end
 
   # # GET /responses/1
   # # GET /responses/1.json
