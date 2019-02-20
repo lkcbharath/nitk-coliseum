@@ -4,6 +4,7 @@ class CreateResponses < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.integer :correct_response
       t.integer :given_response
+      t.string :time_taken
       t.timestamps
     end
   end

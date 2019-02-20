@@ -16,13 +16,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.datetime :remember_created_at
 
       ## FOR THE QUIZ
-
+      t.boolean :started_quiz, null:false, default: false
       t.integer :answered_responses, null:false, default: 0
       t.integer :right_responses, null:false, default: 0
 
-      t.datetime :start_time
-      t.datetime :end_time
-      t.integer :total_time_taken_s
+      t.integer :total_time_taken, null:false, default: 0
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

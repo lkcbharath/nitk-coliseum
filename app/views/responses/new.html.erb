@@ -1,10 +1,20 @@
-<% if notice %>
-    <div class="alert alert-success" role="alert">
-        <%= notice %>
+<%# if notice %>
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success!</strong> <%= notice %>
     </div>
-<% end %>
 
-<%= render 'form', response: @response %>
+
+  <%= render 'form', response: @response, question: @question  %>
+
+<%# else %>
+<!--  <div class="alert alert-danger alert-dismissible">-->
+<!--    <button type="button" class="close" data-dismiss="alert">&times;</button>-->
+<!--    <strong>Uh Oh!</strong> You've tried to access this page through other means. Your quiz session, if existed, is now invalidated. :(-->
+<!--  </div>-->
+
+<%# end %>
+
 
 
 <%#= link_to 'Back', responses_path %>

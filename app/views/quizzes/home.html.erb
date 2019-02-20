@@ -1,12 +1,13 @@
 <% if notice %>
-    <div class="alert alert-success" role="alert">
-        <%= notice %>
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success!</strong> <%= notice %>
     </div>
 <% end %>
 
 
 
-<% if current_user.answered_responses == 0 %>
+<% if !current_user.started_quiz && current_user.time_interval? %>
 
     <h3>Before taking the quiz, please read the following:</h3>
 
@@ -14,12 +15,16 @@
         <li>The quiz is of MCQ type with no negative marking.</li><br>
         <li>The quiz consists of 10 randomly picked questions.</li><br>
         <li>Each question has a time limit of 10 seconds. After that, it will automatically be answered with an incorrect option.</li><br>
-        <li>During the quiz, <b>do not use the back, refresh, or forward buttons.</b> It will invalidate your session and you won't be able to complete the quiz.</li><br>
+        <li>During the quiz, <b>do not use the back, refresh, or forward buttons.</b> It will invalidate your quiz session, if you've started it, and you won't be able to answer the remaining questions.</li><br>
         <li>Best of luck! In case of tie-breaker situations, the answers with less time taken will have a higher rank.</li><br>
     </ol>
     <%= link_to 'Start', quizzes_path, :class => "btn btn-default", data: {confirm: "Are you sure you want to start?"} %>
 <% else %>
 
-    Thank you for taking the quiz! The results will be announced soon.
+  <br>
+  <h2>
+    The quiz is currently closed.
+  </h2>
+
 
 <% end %>

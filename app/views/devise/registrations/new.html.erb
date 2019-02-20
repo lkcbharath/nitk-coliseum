@@ -28,74 +28,65 @@
   </div>
 
 
-  <div class="field">
-    <%= label_tag :team_name %><br />
-    <%= text_field_tag :team_name, params[:team_name] %>
-  </div>
+  <%= f.fields_for :team_detail do |t_f| %>
+    <div class="field">
+      <%= t_f.label :team_name %><br />
+      <%= t_f.text_field :team_name %>
+    </div>
 
+    <div class="field">
+      <%= t_f.label :name_1 %><br />
+      <%= t_f.text_field :name_1 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :roll_number_1 %><br />
+      <%= t_f.text_field :roll_1 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :contact_number_1 %><br />
+      <%= t_f.text_field :contact_1 %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :name_1 %><br />
-    <%= text_field_tag :name_1, params[:name_1] %>
-  </div>
+    <div class="field">
+      <%= t_f.label :name_2 %><br />
+      <%= t_f.text_field :name_2 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :roll_number_2 %><br />
+      <%= t_f.text_field :roll_2 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :contact_number_2 %><br />
+      <%= t_f.text_field :contact_2 %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :roll_number_1 %><br />
-    <%= text_field_tag :roll_1, params[:roll_1] %>
-  </div>
+    <div class="field">
+      <%= t_f.label :name_3 %><br />
+      <%= t_f.text_field :name_3 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :roll_number_3 %><br />
+      <%= t_f.text_field :roll_3 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :contact_number_3 %><br />
+      <%= t_f.text_field :contact_3 %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :contact_1 %><br />
-    <%= text_field_tag :contact_1, params[:contact_1] %>
-  </div>
+    <div class="field">
+      <%= t_f.label :name_4 %><br />
+      <%= t_f.text_field :name_4 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :roll_number_4 %><br />
+      <%= t_f.text_field :roll_4 %>
+    </div>
+    <div class="field">
+      <%= t_f.label :contact_number_4 %><br />
+      <%= t_f.text_field :contact_4 %>
+    </div>
 
-
-  <div class="field">
-    <%= label_tag :name_2 %><br />
-    <%= text_field_tag :name_2, params[:name_2] %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :roll_number_2 %><br />
-    <%= text_field_tag :roll_2, params[:roll_2] %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :contact_2 %><br />
-    <%= text_field_tag :contact_2, params[:contact_2] %>
-  </div>
-
-
-  <div class="field">
-    <%= label_tag :name_3 %><br />
-    <%= text_field_tag :name_3, params[:name_3] %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :roll_number_3 %><br />
-    <%= text_field_tag :roll_3, params[:roll_3] %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :contact_3 %><br />
-    <%= text_field_tag :contact_3, params[:contact_3] %>
-  </div>
-
-
-  <div class="field">
-    <%= label_tag :name_4 %><br />
-    <%= text_field_tag :name_4, params[:name_4] %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :roll_number_4 %><br />
-    <%= text_field_tag :roll_4, params[:roll_4] %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :contact_4 %><br />
-    <%= text_field_tag :contact_4, params[:contact_4] %>
-  </div>
+  <% end %>
 
   <br>
 

@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20190217144409) do
     t.integer  "user_id"
     t.integer  "correct_response"
     t.integer  "given_response"
+    t.string   "time_taken"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -63,20 +64,20 @@ ActiveRecord::Schema.define(version: 20190217144409) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "answered_responses",     default: 0,  null: false
-    t.integer  "right_responses",        default: 0,  null: false
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.integer  "total_time_taken_s"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.boolean  "started_quiz",           default: false, null: false
+    t.integer  "answered_responses",     default: 0,     null: false
+    t.integer  "right_responses",        default: 0,     null: false
+    t.integer  "total_time_taken",       default: 0,     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "team_details", "users"
 end

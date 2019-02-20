@@ -3,17 +3,59 @@
 @import "bootstrap/theme";
 @import "scaffolds";
 
+//body {
+//    padding: 40px;
+//}
+//
+//footer {
+//    position: absolute;
+//    left: 0;
+//    bottom: 0;
+//    height: 50px;
+//    width: 100%;
+//    overflow: hidden;
+//}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
-    padding: 40px;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
 }
 
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    overflow: hidden;
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
 }
 
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
 
+code {
+  font-size: 80%;
+}
+
+input[type="text"]:disabled {
+  background: #ffffff;
+}

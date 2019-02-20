@@ -5,9 +5,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
+  # def new
+  #   super
+  # end
+  #
   def new
-    super
-  end
+      build_resource({})
+      self.resource.team_detail = TeamDetail.new
+      respond_with self.resource
+    end
 
   # POST /resource
   # def create
@@ -42,8 +48,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def sign_up_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :team_name, :name_1, :roll_1, :contact_1, :name_2, :roll_2, :contact_2, :name_3, :roll_3, :contact_3, :name_4, :roll_4, :contact_4)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, [team_detail_attributes: [:team_name, :name_1, :roll_1, :contact_1, :name_2, :roll_2, :contact_2, :name_3, :roll_3, :contact_3, :name_4, :roll_4, :contact_4]])
   end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(team_detail: [:team_name, :name_1, :roll_1, :contact_1, :name_2, :roll_2, :contact_2, :name_3, :roll_3, :contact_3, :name_4, :roll_4, :contact_4])
+  # end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
