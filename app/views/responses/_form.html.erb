@@ -4,6 +4,7 @@
       <h2><%= pluralize(response.errors.count, "error") %> prohibited this response from being saved:</h2>
 
       <ul>
+
       <% response.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -19,7 +20,6 @@
                 :style => "display: inline-block;float: right;text-align-last: right;border-width:0px;", :size => "1", :readonly => true %>
 <!--      <label style="display: inline-block;float: right;" name = "response[time_taken]">11</label>-->
     </h3>
-
     <br>
 
     <div style="display: none;">
@@ -29,17 +29,14 @@
     <ul class="list-group">
 
     <li class="list-group-item">
-
     <div class="radio">
       <label>
           <%= f.radio_button :given_response, 1 %>
           <%= f.label question.option_1 %><br>
       </label>
     </div>
-
     </li>
 
-    
     <li class="list-group-item">
     <div class="radio">
     <label>
@@ -49,7 +46,6 @@
     </div>
     </li>
 
-    
     <li class="list-group-item">
     <div class="radio">
       <label>
@@ -59,7 +55,6 @@
     </div>
     </li>
 
-    
     <li class="list-group-item">
     <div class="radio">
       <label>
@@ -72,17 +67,14 @@
     </ul>
 
     <br>
-
     <div class = "<%= controller_name %> <%= action_name %>">
         <%= f.submit :value => "Submit", :id => "response_submit", :class => "btn btn-default" %>
     </div>
 
-    
-
   <% end %>
 
   <script>
-    //document.onload = setTimeout(function () { response_submit.click(); }, 10000);
+    document.onload = setTimeout(function () { response_submit.click(); }, 10000);
   </script>
 
   <script>
@@ -91,17 +83,8 @@
 
     function startTimer() {
       var presentTime = document.getElementById('response_time_taken').value;
-      var s = checkSecond((presentTime - 1));
-      // if(s==59){m=m-1}
-      //if(m<0){alert('timer completed')}
-      
-      document.getElementById('response_time_taken').value = s;
+      document.getElementById('response_time_taken').value = (presentTime - 1);
       setTimeout(startTimer, 1000);
-    }
-
-    function checkSecond(sec) {// add zero in front of numbers < 10
-      if (sec < 0) {sec = "0"};
-      return sec;
     }
   </script>
 
