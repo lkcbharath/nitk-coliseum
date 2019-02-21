@@ -1,12 +1,5 @@
 Question.create(
     [
-        { description: "",
-          option_1: "",
-          option_2: "",
-          option_3: "",
-          option_4: "",
-          right_option: 1
-        },
         { description: "Who won the most Man of the Match awards in the IPL?",
           option_1: "David Warner",
           option_2: "Virat Kohli",
