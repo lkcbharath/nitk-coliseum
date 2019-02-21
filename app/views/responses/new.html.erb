@@ -1,4 +1,4 @@
-<%# if notice %>
+<% if notice %>
     <div class="alert alert-success alert-dismissible">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <strong>Success!</strong> <%= notice %>
@@ -7,13 +7,13 @@
 
   <%= render 'form', response: @response, question: @question  %>
 
-<%# else %>
-<!--  <div class="alert alert-danger alert-dismissible">-->
-<!--    <button type="button" class="close" data-dismiss="alert">&times;</button>-->
-<!--    <strong>Uh Oh!</strong> You've tried to access this page through other means. Your quiz session, if existed, is now invalidated. :(-->
-<!--  </div>-->
+<% else %>
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Uh Oh!</strong> You've tried to access this page through other means. If you were taking the quiz, it has been submitted already. :(
+  </div>
 
-<%# end %>
+<% end %>
 
 
 

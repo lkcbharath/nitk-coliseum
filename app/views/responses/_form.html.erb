@@ -2,9 +2,7 @@
   <% if response.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(response.errors.count, "error") %> prohibited this response from being saved:</h2>
-
       <ul>
-
       <% response.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -12,13 +10,11 @@
     </div>
   <% end %>
 
-  <% if @question %>
-    <%# <div class="panel-body"> %>
+  <% if (question = current_user.questions.first) %>
     <h3 >
       <%= f.label question.description, :style => "display: inline-block;" %>
       <%= f.text_field :time_taken,
                 :style => "display: inline-block;float: right;text-align-last: right;border-width:0px;", :size => "1", :readonly => true %>
-<!--      <label style="display: inline-block;float: right;" name = "response[time_taken]">11</label>-->
     </h3>
     <br>
 
@@ -26,45 +22,31 @@
       <%= f.radio_button :given_response, 0, :checked => "checked" %>
     </div>
 
-    <ul class="list-group">
-
-    <li class="list-group-item">
-    <div class="radio">
-      <label>
-          <%= f.radio_button :given_response, 1 %>
-          <%= f.label question.option_1 %><br>
-      </label>
+    <div class="panel panel-default">
+      <div class="panel-heading">Choose your option</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-2 col-sm-2 col-xs-5">
+            <label><%= f.radio_button :given_response, 1 %><%= label_tag question.option_1 %><br></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-sm-2 col-xs-5">
+            <label><%= f.radio_button :given_response, 2 %><%= label_tag question.option_2 %><br></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-sm-2 col-xs-5">
+            <label><%= f.radio_button :given_response, 3 %><%= label_tag question.option_3 %><br></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-sm-2 col-xs-5">
+            <label><%= f.radio_button :given_response, 4 %><%= label_tag question.option_4 %><br></label>
+          </div>
+        </div>
+      </div>
     </div>
-    </li>
-
-    <li class="list-group-item">
-    <div class="radio">
-    <label>
-        <%= f.radio_button :given_response, 2 %>
-        <%= f.label question.option_2 %><br>
-    </label>
-    </div>
-    </li>
-
-    <li class="list-group-item">
-    <div class="radio">
-      <label>
-        <%= f.radio_button :given_response, 3 %>
-        <%= f.label question.option_3 %><br>
-    </label>
-    </div>
-    </li>
-
-    <li class="list-group-item">
-    <div class="radio">
-      <label>
-        <%= f.radio_button :given_response, 4 %>
-        <%= f.label question.option_4 %><br>
-      </label>    
-    </div>
-    </li>
-
-    </ul>
 
     <br>
     <div class = "<%= controller_name %> <%= action_name %>">
@@ -74,7 +56,7 @@
   <% end %>
 
   <script>
-    document.onload = setTimeout(function () { response_submit.click(); }, 10000);
+    document.onload = setTimeout(function () { response_submit.click(); }, 11000);
   </script>
 
   <script>
@@ -83,6 +65,10 @@
 
     function startTimer() {
       var presentTime = document.getElementById('response_time_taken').value;
+      if ((presentTime - 1) == -1){
+          presentTime = 1;
+      }
+
       document.getElementById('response_time_taken').value = (presentTime - 1);
       setTimeout(startTimer, 1000);
     }

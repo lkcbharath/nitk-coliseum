@@ -14,8 +14,8 @@ class User < ApplicationRecord
 
 
   def time_interval?
-    t1 = Time.new(2018, 02, 31, 11, 00, 00, "+05:30")
-    t2 = Time.new(2019, 02, 31, 16, 00, 00, "+05:30")
+    t1 = Time.new(2019, 02, 21, 12, 00, 00, "+05:30")
+    t2 = Time.new(2019, 02, 22, 12, 00, 00, "+05:30")
     Time.now.between?(t1, t2)
   end
 

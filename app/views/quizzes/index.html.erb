@@ -4,3 +4,16 @@
 <h2>
   Thank you for taking the quiz! The results will be announced soon.
 </h2>
+<br>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Whether quiz submitted successfully?:
+      <%if current_user.answered_responses == 10 %>
+        Yes
+      <% else %>
+        No
+      <% end %>
+    <li class="list-group-item">Number of correct answers: <%= current_user.right_responses %></li>
+    <li class="list-group-item">Total time taken in seconds (per question: minimum 1s, maximum 11s): <%= current_user.total_time_taken %></li>
+  </ul>
+</div>

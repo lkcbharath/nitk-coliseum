@@ -38,10 +38,6 @@ class ResponsesController < ApplicationController
       if current_user.answered_responses == 10
         current_user.questions.delete(@question) if @question
         current_user.calculate_total_time_taken
-        # current_user.responses.each do |r|
-        #   current_user.total_time_taken += r.time_taken.to_i
-        # end
-        # current_user.save
         @response.save
         format.html { redirect_to quizzes_url }
 
