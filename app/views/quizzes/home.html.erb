@@ -13,7 +13,7 @@
 
     <ol>
         <li>The quiz is of MCQ type with only one option being correct, and no negative marking.</li><br>
-        <li>The quiz consists of 10 randomly picked questions.</li><br>
+        <li>The quiz consists of 20 randomly picked questions.</li><br>
         <li>Make sure to <b>select</b> one of the options! Without that, your answer will be answered with an incorrect option.</li><br>
         <li>Each question has a <b>time limit of 10 seconds.</b> After that, it will automatically be answered with an incorrect option.</li><br>
         <li>During the quiz, <b>do not use</b> the back, refresh, or forward buttons. <b>All</b> your answers will <b>not</b> be submitted!</li><br>
@@ -29,7 +29,7 @@
   <div class="card">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Whether quiz submitted successfully?:
-        <%if current_user.answered_responses == 10 %>
+        <%if current_user.answered_responses == 20 %>
           Yes
         <% else %>
           No

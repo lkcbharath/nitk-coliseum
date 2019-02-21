@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
   def start_quiz
     self.started_quiz = true
-    self.questions << Question.order("RAND()").limit(10)
+    self.questions << Question.order("RAND()").limit(20)
     self.save
   end
 

@@ -35,7 +35,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
 
-      if current_user.answered_responses == 10
+      if current_user.answered_responses == 20
         current_user.questions.delete(@question) if @question
         current_user.calculate_total_time_taken
         @response.save
