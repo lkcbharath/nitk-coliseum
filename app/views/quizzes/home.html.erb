@@ -1,50 +1,51 @@
-<%# if notice %>
-<!--    <div class="alert alert-success alert-dismissible">-->
-<!--      <button type="button" class="close" data-dismiss="alert">&times;</button>-->
-<!--      <strong>Success!</strong> <%#= notice %>-->
-<!--    </div>-->
-<%# end %>
+<% if notice %>
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success!</strong> <%= notice %>
+    </div>
+<% end %>
 
-<!--<h2> Welcome to the first round of the Mock IPL Auction!</h2>-->
+<h2> Welcome to the first round of the Mock IPL Auction!</h2>
 
-<%# if !current_user.started_quiz && current_user.time_interval? %>
+<% if !current_user.started_quiz && current_user.time_interval? %>
 
-<!--    <h3>Before taking the quiz, please read the following:</h3>-->
 
-<!--    <ol>-->
-<!--        <li>The quiz is of MCQ type with only one option being correct, and no negative marking.</li><br>-->
-<!--        <li>The quiz consists of 20 randomly picked questions.</li><br>-->
-<!--        <li>Make sure to <b>select</b> one of the options! Without that, your answer will be answered with an incorrect option.</li><br>-->
-<!--        <li>Each question has a <b>time limit of 10 seconds.</b> After that, it will automatically be answered with an incorrect option.</li><br>-->
-<!--        <li>During the quiz, <b>do not use</b> the back, refresh, or forward buttons. <b>All</b> your answers will <b>not</b> be submitted!</li><br>-->
-<!--        <li>In case of tie-breaker situations, the answers with less time taken in total will have a higher rank.</li><br>-->
-<!--    </ol>-->
-    <%#= link_to 'Start', quizzes_path, :class => "btn btn-default", data: {confirm: "Are you sure you want to begin?"} %>
-<%# elsif current_user.started_quiz%>
-<!--  <br>-->
-<!--  <h2>-->
-<!--    Thank you for taking the quiz! The results will be announced soon.-->
-<!--  </h2>-->
-<!--  <br>-->
-<!--  <div class="card">-->
-<!--    <ul class="list-group list-group-flush">-->
-<!--      <li class="list-group-item">Whether quiz submitted successfully?:-->
-        <%#if current_user.answered_responses == 20 %>
-<!--          Yes-->
-        <%# else %>
-<!--          No-->
-        <%# end %>
-<!--      <li class="list-group-item">Number of correct answers: <%#= current_user.right_responses %></li>-->
-<!--      <li class="list-group-item">Total time taken in seconds (per question: minimum 1s, maximum 11s): <%#= current_user.total_time_taken %></li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<%# else  %>
+    <h3>Before taking the quiz, please read the following:</h3>
 
+    <ol>
+        <li>The quiz is of MCQ type with only one option being correct, and no negative marking.</li><br>
+        <li>The quiz consists of 20 randomly picked questions.</li><br>
+        <li>Make sure to <b>select</b> one of the options! Without that, your answer will be answered with an incorrect option.</li><br>
+        <li>Each question has a <b>time limit of 10 seconds.</b> After that, it will automatically be answered with an incorrect option.</li><br>
+        <li>During the quiz, <b>do not use</b> the back, refresh, or forward buttons. <b>All</b> your answers will <b>not</b> be submitted!</li><br>
+        <li>In case of tie-breaker situations, the answers with less time taken in total will have a higher rank.</li><br>
+    </ol>
+    <%= link_to 'Start', quizzes_path, :class => "btn btn-default", data: {confirm: "Are you sure you want to begin?"} %>
+<% elsif current_user.started_quiz%>
   <br>
   <h2>
-    Due to technical issues, the quiz will be held offline. Details will be intimated later. For any further queries, contact
+    Thank you for taking the quiz! The results will be announced soon.
   </h2>
-<br>
-<h3>Gokul: +91 74110 71186</h3>
+  <br>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Whether quiz submitted successfully?:
+        <%if current_user.answered_responses == 20 %>
+          Yes
+        <% else %>
+          No
+        <% end %>
+      <li class="list-group-item">Number of correct answers: <%= current_user.right_responses %></li>
+      <li class="list-group-item">Total time taken in seconds (per question: minimum 1s, maximum 11s): <%= current_user.total_time_taken %></li>
+    </ul>
+  </div>
+<%# else  %>
 
-<%# end %>
+<!--  <br>-->
+<!--  <h2>-->
+<!--    Due to technical issues, the quiz will be held offline. Details will be intimated later. For any further queries, contact-->
+<!--  </h2>-->
+<!--<br>-->
+<!--<h3>Gokul: +91 74110 71186</h3>-->
+
+<% end %>

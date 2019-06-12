@@ -1,8 +1,7 @@
 class QuizzesController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
 
     # @questions = current_user.questions
-
 
     def home
     end
